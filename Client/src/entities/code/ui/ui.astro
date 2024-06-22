@@ -1,61 +1,79 @@
 ---
-interface Props {
-	title: string;
-	body: string;
-	href: string;
-}
-
-const { href, title, body } = Astro.props;
 ---
 
-<li class="link-card">
-	<a href={href}>
-		<h2>
-			{title}
-			<span>&rarr;</span>
-		</h2>
-		<p>
-			{body}
-		</p>
-	</a>
-</li>
+<article class="qrcode-card">
+	<div class="qrcode-card__image-wrapper">
+		<svg class="qrcode-card__image-background" style="shape-rendering: geometricPrecision;" width="288" height="288" viewBox="0 0 288 288" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<rect width="288" height="288" rx="10" fill="#3685FF" />
+			<mask id="mask0_0_1806" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="288" height="288">
+				<rect width="288" height="288" rx="10" fill="white" />
+			</mask>
+			<g mask="url(#mask0_0_1806)">
+				<circle cx="266.5" cy="339.5" r="135" fill="#2C7DFA" />
+				<circle cx="32.5" cy="-0.5" r="164" fill="#2C7DFA" />
+			</g>
+		</svg>
+		<img class="qrcode-card__image-qrcode" src="/images/qr-code.svg" alt="Qr code image" />
+	</div>
+	<h2 class="qrcode-card__title">Improve your front-end skills by building projects</h2>
+	<p class="qrcode-card__text">Scan the QR code to visit Frontend Mentor and take your coding skills to the next level</p>
+</article>
+
 <style>
-	.link-card {
-		list-style: none;
+	.qrcode-card {
+		border-radius: 2rem;
+		box-shadow: 0 2.5rem 2.5rem 0 rgba(0, 0, 0, 0.05);
+		background: var(--white);
+		padding: 1.6rem 1.6rem 4rem 1.6rem;
 		display: flex;
-		padding: 1px;
-		background-color: #23262d;
-		background-image: none;
-		background-size: 400%;
-		border-radius: 7px;
-		background-position: 100%;
-		transition: background-position 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-		box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+		flex-direction: column;
+		align-items: center;
+		max-width: 32rem;
 	}
-	.link-card > a {
-		width: 100%;
-		text-decoration: none;
-		line-height: 1.4;
-		padding: calc(1.5rem - 1px);
-		border-radius: 8px;
-		color: white;
-		background-color: #23262d;
-		opacity: 0.8;
+
+	.qrcode-card__image-wrapper {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		border-radius: 1rem;
+		overflow: hidden;
 	}
-	h2 {
-		margin: 0;
-		font-size: 1.25rem;
-		transition: color 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+
+	.qrcode-card__image-background {
+		width: 28.8rem;
+		height: 28.8rem;
+		user-select: none;
+		pointer-events: none;
 	}
-	p {
-		margin-top: 0.5rem;
-		margin-bottom: 0;
+
+	.qrcode-card__image-qrcode {
+		width: 16rem;
+		height: 16rem;
+		position: absolute;
+		user-select: none;
+		pointer-events: none;
 	}
-	.link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
+
+	.qrcode-card__title {
+		font-family: var(--font-family), sans-serif;
+		font-weight: 700;
+		font-size: 2.2rem;
+		text-align: center;
+		color: var(--dark-navy);
+		margin-top: 2.4rem;
+		line-height: 126%;
 	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
+
+	.qrcode-card__text {
+		font-family: var(--font-family), sans-serif;
+		font-weight: 400;
+		font-size: 1.5rem;
+		letter-spacing: 0.01em;
+		text-align: center;
+		color: var(--grey);
+		margin-top: 1.6rem;
+		padding: 0 1.6rem;
+		line-height: 128%;
 	}
 </style>
