@@ -4,13 +4,13 @@
 <article class="qrcode-card">
 	<div class="qrcode-card__image-wrapper">
 		<svg class="qrcode-card__image-background" style="shape-rendering: geometricPrecision;" width="288" height="288" viewBox="0 0 288 288" fill="none" xmlns="http://www.w3.org/2000/svg">
-			<rect width="288" height="288" rx="10" fill="#3685FF" />
+			<rect class="qrcode-card__image-background-rectangle" width="288" height="288" rx="10" fill="#3685FF" />
 			<mask id="mask0_0_1806" style="mask-type:luminance" maskUnits="userSpaceOnUse" x="0" y="0" width="288" height="288">
 				<rect width="288" height="288" rx="10" fill="white" />
 			</mask>
 			<g mask="url(#mask0_0_1806)">
-				<circle cx="266.5" cy="339.5" r="135" fill="#2C7DFA" />
-				<circle cx="32.5" cy="-0.5" r="164" fill="#2C7DFA" />
+				<circle class="qrcode-card__image-background-circle" cx="266.5" cy="339.5" r="135" fill="#2C7DFA" />
+				<circle class="qrcode-card__image-background-circle" cx="32.5" cy="-0.5" r="164" fill="#2C7DFA" />
 			</g>
 		</svg>
 		<img class="qrcode-card__image-qrcode" src="/images/qr-code.svg" alt="Qr code image" />
@@ -47,6 +47,22 @@
 		pointer-events: none;
 	}
 
+	.qrcode-card__image-background-rectangle {
+		fill: #3685ff;
+
+		@media (width >= 768px) {
+			fill: #2c7dfa;
+		}
+	}
+
+	.qrcode-card__image-background-circle {
+		fill: #2c7dfa;
+
+		@media (width >= 768px) {
+			fill: #3685ff;
+		}
+	}
+
 	.qrcode-card__image-qrcode {
 		width: 16rem;
 		height: 16rem;
@@ -62,7 +78,7 @@
 		text-align: center;
 		color: var(--dark-navy);
 		margin-top: 2.4rem;
-		line-height: 126%;
+		line-height: 124%;
 	}
 
 	.qrcode-card__text {
@@ -74,6 +90,6 @@
 		color: var(--grey);
 		margin-top: 1.6rem;
 		padding: 0 1.6rem;
-		line-height: 128%;
+		line-height: 126%;
 	}
 </style>
